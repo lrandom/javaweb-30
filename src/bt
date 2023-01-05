@@ -1,7 +1,0 @@
-1. Viết chương trình nhập vào 1 số từ bàn phím, kiểm tra tính chẵn/lẻ của số đó và in ra màn hình
-2. Viết chương trình nhập vào 2 số từ bàn phím, sử dụng vòng lặp while hoặc do/while để tạo ra một menu như sau
-    1. Tính tổng hai số và in ra màn hình
-    2. Tính hiệu hai số và in ra màn hình
-    3. Tính tích hai số và in ra màn hình
-    4. Tính thương hai số và in ra màn hình
-    5. Thoát chương trình

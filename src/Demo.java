@@ -1,14 +1,22 @@
-import java.util.Scanner;
-
 public class Demo {
     public static void main(String[] args) {
-        int a, b;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Vui long so A");
-        //nhận số a từ bàn phím
-        a = scanner.nextInt();
-        System.out.println("Vui long so B");
-        b = scanner.nextInt();
-        System.out.println("Tong cua 2 so la: " + (a + b));
+        //Cách khai báo thứ 1
+        int arr[] = new int[5];
+        arr[0]=1;
+        arr[1]=2;
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+
+        for (int item:arr
+             ) {
+            System.out.println(item);
+        }
+
+        //Cách khai báo thứ 2
+        int arr2[] = {1,2,3,4,5};
+        for (int i = 0; i < arr2.length; i++) {
+            System.out.println(arr2[i]);
+        }
     }
 }

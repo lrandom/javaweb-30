@@ -1,39 +1,31 @@
 public class Demo2 {
     public static void main(String[] args) {
-        /*for (int i = 0; i < 10; i++) {
-            System.out.println(i);
-        }*/
+        //Cách khai báo thứ 1
+        int arr[][] = new int[2][3]; //2 dòng 3 cột
+        arr[0][0]=1;
+        arr[0][1]=2;
+        arr[0][2]=3;
+        arr[1][0]=4;
+        arr[1][1]=5;
+        arr[1][2]=6;
 
-       /* while(true){
-            System.out.println("Vòng lặp while");
-            break;
-        }*/
-
-        /*int index = 10;
-        do {
-            System.out.println(index);
-            index++;
-        } while (index<20);*/
-
-        //break
-        //continue
-        /*for (int i = 0; i < 10; i++) {
-            if (i == 5) {
-                continue;
+        //duyệt theo hàng
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.printf("%d",arr[i][j]);
             }
-            System.out.println(i);
-        }*/
-        //0,1,2,3,4,6,7,8,9
-
-        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        for (int i = 0; i < nums.length; i++) {
-            System.out.println(nums[i]);
+            System.out.printf("\n");
         }
 
-        //duyệt mảng/tập hợp
-        for (int num : nums
-        ) {
-            System.out.println(num);
+        //cách khai báo thứ 2
+        int arr2[][] = {{1,2,3},{4,5,6}};
+        for(int[] item:arr2
+             ) {
+            for (int item2:item
+                 ) {
+                System.out.printf("%d",item2);
+            }
+            System.out.printf("\n");
         }
     }
 }
