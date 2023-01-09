@@ -1,7 +1,2 @@
-Cho một mảng như sau [3,4,10,4,5,6,4,2,4,5,6], hãy sắp xếp mảng tăng dần bằng thuật toán bubble sort
-
-Cho một mảng như sau [3,4,10,4,5,6,4,2,4,5,6], hãy tính giai thừa các phần tử mảng và in ra màn hình
-
-Cho một mảng như sau [3,4,10,4,5,6,4,2,4,5,6], hãy tính tổng giá trị của các phần tử trong mảng
-
-Cho một mảng như sau [3,4,10,4,5,6,4,2,4,5,6], tìm số lớn nhất và in ra màn hình
+1. Viết một lớp máy tính với các phương thức cộng, trừ, nhân, chia, thực hiện khởi tạo đối tượng từ lớp Máy tính và thực hiện tính toán với hai số hạng
+2. Viết một lớp đa giác với các phương thức tính chu vi, diện tích, thực hiện khởi tạo đối tượng từ lớp đa giác và thực hiện tính toán với các đối tượng đa giác khác nhau
