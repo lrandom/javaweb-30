@@ -1,24 +1,21 @@
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int c = 0;
-        int a = 10;
-        int d = 0;
-
-        System.out.println("Vui lòng nhập vào số chia");
-        Scanner scanner = new Scanner(System.in);
-        d = scanner.nextInt();
-
+        //"C:\\Users\\lrandom\\Desktop\\demo-data.txt"
         try {
-            System.out.println(d);
-            c = a / d;
-        } catch (ArithmeticException exception) {
-            System.out.println("Vui lòng nhập lại số chia khác 0");
-            d = scanner.nextInt();
-            c = a / d;
+            FileInputStream fileInputStream = new FileInputStream("/Users/lrandom/Desktop/demo-data.txt");
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
+            int data = 0;
+            while ((data = bufferedInputStream.read()) != -1) {
+                System.out.print((char) data);
+            }
+            fileInputStream.close();
+            bufferedInputStream.close();
+        } catch (Exception e) {
+            System.out.println("File not found");
         }
-
-        System.out.println("Kết quả phép chia là " + c);
     }
 }
