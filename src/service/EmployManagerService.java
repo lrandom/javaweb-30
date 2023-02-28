@@ -2,8 +2,7 @@ package service;
 
 import models.Employee;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.util.ArrayList;
 
 public class EmployManagerService {
@@ -11,12 +10,13 @@ public class EmployManagerService {
     public static final String DB_PATH = "/Users/lrandom/Documents/employee.dat";
 
     public EmployManagerService() {
-
+        syncFromDB();
     }
 
     public void addEmployee(int id, String name, int age, float salary) {
         Employee employee = new Employee(id, name, age, salary);
         list.add(employee);
+        syncToDB();
     }
 
     public ArrayList<Employee> getList() {
@@ -33,15 +33,46 @@ public class EmployManagerService {
     }
 
     public ArrayList<Employee> getEmployeeOrderBySalary() {
-        return null;
+        ArrayList<Employee> listSort = new ArrayList<Employee>(list);
+        listSort.sort((o1, o2) -> {
+            if (o1.getSalary() < o2.getSalary()) {
+                return 1;
+            } else if (o1.getSalary() > o2.getSalary()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+        return listSort;
     }
 
-    public void syncDB() {
+    public void syncToDB() {
         try {
-            FileInputStream fileInputStream = new FileInputStream(DB_PATH);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            FileOutputStream fos = new FileOutputStream(DB_PATH);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fos);
+            objectOutputStream.writeObject(list);
+            fos.close();
+            objectOutputStream.close();
         } catch (Exception e) {
+            System.out.println("Không thể đồng bộ được dữ liệu");
+        }
+    }
 
+    public void syncFromDB() {
+        try {
+            File file = new File(DB_PATH);
+            if (!file.exists() || file.isDirectory()) {
+                list = new ArrayList<Employee>();
+                return;
+            }
+
+            FileInputStream fis = new FileInputStream(DB_PATH);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fis);
+            list = (ArrayList<Employee>) objectInputStream.readObject();
+            fis.close();
+            objectInputStream.close();
+        } catch (Exception e) {
+            System.out.println("Không thể đồng bộ được dữ liệu");
         }
     }
 }
